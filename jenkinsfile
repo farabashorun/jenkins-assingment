@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone repository') {
+            steps {
+                // Clone the GitHub repository
+                git 'https://github.com/farabashorun/jenkins-assingment.git'
+            }
+        }
+        
+        stage('Build Docker image') {
+            steps {
+                // Build the Docker image using the Dockerfile
+                sh 'docker build -t myimage:latest .'
+            }
+        }
+        
+        stage('Run Docker container') {
+            steps {
+                // Run the Docker container using the built image
+                sh 'docker run -d -p 8080:80 myimage:latest'
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
