@@ -24,6 +24,7 @@ metadata:
 spec:
   selector:
     app: server-project
+  type: NodePort
   ports:
     - protocol: TCP
       port: 8000
